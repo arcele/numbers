@@ -40,5 +40,7 @@ h1 {
   background: #ccc;
   border: 1px solid black;
   text-align: center;
+}
+.empty-placed-number {
   cursor: pointer;
 }
