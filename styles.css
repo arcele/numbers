@@ -44,3 +44,14 @@ h1 {
 .empty-placed-number {
   cursor: pointer;
 }
+
+.reset {
+  width:100%;
+  text-align:center;
+  clear: left;
+  padding: 20px 0;
+  display: none;
+}
+.game.full .reset {
+  display: block;
+}
