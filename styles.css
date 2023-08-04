@@ -1,0 +1,44 @@
+body {
+  background:#121212;
+}
+
+.game {
+  margin: 15px auto;
+  width:675px;
+  min-height: 375px;
+  background:white;
+  border:1px solid #aaa;
+  padding: 10px 25px;
+}
+
+h1 {
+  text-align:center;
+}
+
+.current-number {
+  margin:5px auto;
+  font-size: 40px;
+  width: 125px;
+  text-align: center;
+}
+.your-number {
+  margin: 5px auto;
+  font-size: 32px;
+  width: 245px;
+  text-align: center;
+}
+
+.label {
+  font-size: 14px;
+}
+
+.placed-number {
+  float:left;
+  height: 75px;
+  width: 45px;
+  line-height:75px;
+  background: #ccc;
+  border: 1px solid black;
+  text-align: center;
+  cursor: pointer;
+}
