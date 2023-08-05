@@ -55,3 +55,31 @@ h1 {
 .game.full .reset {
   display: block;
 }
+.clear {
+  clear:left;
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size:80px;
+  }
+  .label {
+    font-size: 35px;
+  }
+  .current-number {
+    width:250px;
+    font-size:65px;
+  }
+  .your-number {
+    width: 435px;
+  }
+  .placed-number {
+    width:85px;
+    height:175px;
+    line-height: 175px;
+    font-size: 50px;
+  }
+  .reset {
+    font-size: 35px;
+  }
+}
