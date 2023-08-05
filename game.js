@@ -1,7 +1,11 @@
 (function () {
 
+  this.numbers = [];
+
   function setNewNumber() {
-    $(".current-number").find(".number").text(Math.floor(Math.random() * 10 % 9))
+    let newNumber = Math.floor(Math.random() * 10 % 9);
+    $(".current-number").find(".number").text(newNumber);
+    this.numbers.push(newNumber);
   }
 
   $(document).ready( () => {
@@ -15,6 +19,7 @@
         } else {
           $(".current-number").find(".number").text('-')
           $(".game").addClass("full")
+          console.log("all numbers:", this.numbers)
         }
       }
     });
@@ -22,6 +27,7 @@
       // Start New Game
       $(".game").removeClass("full")
       $(".placed-number").text("-").addClass("blank-placed-number")
+      this.numbers = [];
       setNewNumber();
     })
     setNewNumber();
