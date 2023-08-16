@@ -25,6 +25,7 @@
       particleCount: 275,
       spread: 250
     });
+    confetti.reset();
     // end confetti requirement
 
     $(".blank-placed-number").on("click", (e) => {
