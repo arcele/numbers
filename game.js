@@ -14,6 +14,19 @@
   }
 
   $(document).ready( () => {
+    // requires confetti to be included
+    var myCanvas = document.createElement('canvas');
+    document.body.appendChild(myCanvas);
+    var myConfetti = confetti.create(myCanvas, {
+      resize: true,
+      useWorker: true
+    });
+    myConfetti({
+      particleCount: 275,
+      spread: 250
+    });
+    // end confetti requirement
+
     $(".blank-placed-number").on("click", (e) => {
       // Place a number
       let tar = $(e.target),
@@ -32,6 +45,9 @@
           minNumber = this.numbers.sort().slice();
           console.log("Above Min:", printNumberArray(this.placedNumbers) - printNumberArray(minNumber))  // above min is probably the best "High Score" to save
           $(".result").text('You were ' + (printNumberArray(maxNumber) - printNumberArray(this.placedNumbers)) + ' below the max value of ' + printNumberArray(maxNumber))
+          if(printNumberArray(maxNumber) == printNumberArray(this.placedNumbers)) {
+            confetti();
+          }
         }
       }
     });
