@@ -42,6 +42,14 @@ h1 {
   border: 1px solid black;
   text-align: center;
 }
+
+.placed-number.correct {
+  background: #89c489;
+}
+.placed-number.incorrect {
+  background: #c4868c;
+}
+
 .blank-placed-number {
   cursor: pointer;
 }

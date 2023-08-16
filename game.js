@@ -22,8 +22,8 @@
       useWorker: true
     });
     myConfetti({
-      particleCount: 275,
-      spread: 250
+      particleCount: 675,
+      spread: 125
     });
     confetti.reset();
     // end confetti requirement
@@ -45,6 +45,15 @@
           maxNumber = this.numbers.sort((a,b) => {return b-a}).slice();
           minNumber = this.numbers.sort().slice();
           console.log("Above Min:", printNumberArray(this.placedNumbers) - printNumberArray(minNumber))  // above min is probably the best "High Score" to save
+          for(z=0; z < 5; z++) {
+            $(".placed-number").map((x, i) => {
+                console.log("X:", x)
+                if($(i).attr('number-index') == z) {
+                  $(i).addClass((this.placedNumbers[z] == maxNumber[z]) ? 'correct' : 'incorrect')
+                }
+            })
+          }
+
           $(".result").text('You were ' + (printNumberArray(maxNumber) - printNumberArray(this.placedNumbers)) + ' below the max value of ' + printNumberArray(maxNumber))
           if(printNumberArray(maxNumber) == printNumberArray(this.placedNumbers)) {
             confetti();
@@ -55,7 +64,7 @@
     $(".reset a").on("click", () => {
       // Start New Game
       $(".game").removeClass("full")
-      $(".placed-number").text("-").addClass("blank-placed-number")
+      $(".placed-number").text("-").addClass("blank-placed-number").removeClass('correct').removeClass('incorrect')
       this.numbers = [];
       this.placedNumbers = [-1,-1,-1,-1,-1];
       setNewNumber();
