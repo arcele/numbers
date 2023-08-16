@@ -41,7 +41,7 @@ h1 {
   border: 1px solid black;
   text-align: center;
 }
-.empty-placed-number {
+.blank-placed-number {
   cursor: pointer;
 }
 
@@ -60,21 +60,26 @@ h1 {
 }
 
 @media (max-width: 600px) {
+  .game {
+    margin: 8px 4px;
+    width: calc(100% - 8px);
+    padding: 0;
+  }
   h1 {
-    font-size:80px;
+    font-size:50px;
   }
   .label {
     font-size: 35px;
   }
   .current-number {
-    width:250px;
+    width:100%;
     font-size:65px;
   }
   .your-number {
-    width: 435px;
+    width: 100%;
   }
   .placed-number {
-    width:85px;
+    width:calc(20% - 2px);
     height:175px;
     line-height: 175px;
     font-size: 50px;
