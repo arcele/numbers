@@ -46,14 +46,14 @@ h1 {
   cursor: pointer;
 }
 
-.reset {
+.reset, .result {
   width:100%;
   text-align:center;
   clear: left;
   padding: 20px 0;
   display: none;
 }
-.game.full .reset {
+.game.full .reset, .game.full .result {
   display: block;
 }
 .clear {
@@ -85,7 +85,7 @@ h1 {
     line-height: 175px;
     font-size: 50px;
   }
-  .reset {
+  .reset, .result {
     font-size: 35px;
   }
 }

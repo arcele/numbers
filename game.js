@@ -17,7 +17,9 @@
     $(".blank-placed-number").on("click", (e) => {
       // Place a number
       let tar = $(e.target),
-          currentNumber = $(".current-number").find(".number").text();
+          currentNumber = $(".current-number").find(".number").text(),
+          maxNumber,
+          minNumber;
       if(tar.hasClass("blank-placed-number")) {
         tar.removeClass("blank-placed-number").text(currentNumber);
         this.placedNumbers[tar.attr("number-index")] = currentNumber;
@@ -26,9 +28,10 @@
         } else {
           $(".current-number").find(".number").text('-')
           $(".game").addClass("full")
-          console.log("all numbers:", this.numbers)
-          console.log("placed number:", printNumberArray(this.placedNumbers))
-          console.log("max :", printNumberArray(this.numbers.sort((a,b) => {return b-a})))
+          maxNumber = this.numbers.sort((a,b) => {return b-a}).slice();
+          minNumber = this.numbers.sort().slice();
+          console.log("Above Min:", printNumberArray(this.placedNumbers) - printNumberArray(minNumber))  // above min is probably the best "High Score" to save
+          $(".result").text('You were ' + (printNumberArray(maxNumber) - printNumberArray(this.placedNumbers)) + ' below the max value of ' + printNumberArray(maxNumber))
         }
       }
     });
