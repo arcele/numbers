@@ -4,7 +4,7 @@
   this.placedNumbers = [-1,-1,-1,-1,-1];
 
   function setNewNumber() {
-    let newNumber = Math.floor(Math.random() * 10 % 9);
+    let newNumber = Math.floor(Math.random() * 10 % 10);
     $(".current-number").find(".number").text(newNumber);
     this.numbers.push(newNumber);
   }
