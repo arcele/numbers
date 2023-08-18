@@ -21,7 +21,12 @@ h1 {
   font-size: 40px;
   width: 125px;
   text-align: center;
+  display:block;
 }
+.game.full .current-number {
+  display:none;
+}
+
 .your-number {
   margin: 5px auto;
   font-size: 32px;
@@ -59,10 +64,14 @@ h1 {
   text-align:center;
   clear: left;
   padding: 20px 0;
+  cursor: pointer;
   display: none;
 }
 .game.full .reset, .game.full .result {
   display: block;
+}
+.reset {
+  color: #60628a;
 }
 .clear {
   clear:left;
