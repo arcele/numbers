@@ -4,7 +4,7 @@ body {
 }
 
 .game {
-  margin: 15px auto;
+  margin: 15px auto 5px auto;
   width:675px;
   min-height: 375px;
   background:white;
@@ -76,6 +76,20 @@ h1 {
 .clear {
   clear:left;
 }
+.footer {
+  width:675px;
+  text-align:right;
+  margin: auto;
+  color:#eee;
+  font-size:12px;
+}
+.footer a {
+  color: #eee;
+  text-decoration: none;
+}
+.footer a:hover {
+  text-decoration: underline;
+}
 
 @media (max-width: 600px) {
   .game {
@@ -104,5 +118,9 @@ h1 {
   }
   .reset, .result {
     font-size: 35px;
+  }
+  .footer {
+    margin: 0 5px;
+    width: auto;
   }
 }
