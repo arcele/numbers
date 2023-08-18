@@ -33,29 +33,33 @@
       let tar = $(e.target),
           currentNumber = $(".current-number").find(".number").text(),
           maxNumber,
-          minNumber;
+          minNumber,
+          difference;
       if(tar.hasClass("blank-placed-number")) {
         tar.removeClass("blank-placed-number").text(currentNumber);
         this.placedNumbers[tar.attr("number-index")] = currentNumber;
         if($(".blank-placed-number").length > 0) {
+          //Empty slots remain, generate the next number
           setNewNumber();
         } else {
-          $(".current-number").find(".number").text('-')
+          //Toggle css class to display "end game" display
           $(".game").addClass("full")
           maxNumber = this.numbers.sort((a,b) => {return b-a}).slice();
           minNumber = this.numbers.sort().slice();
-          console.log("Above Min:", printNumberArray(this.placedNumbers) - printNumberArray(minNumber))  // above min is probably the best "High Score" to save
+          difference = printNumberArray(maxNumber) - printNumberArray(this.placedNumbers);
+          //Highlight Numbers as correct/incorrect
           for(z=0; z < 5; z++) {
             $(".placed-number").map((x, i) => {
-                console.log("X:", x)
                 if($(i).attr('number-index') == z) {
                   $(i).addClass((this.placedNumbers[z] == maxNumber[z]) ? 'correct' : 'incorrect')
                 }
             })
           }
-
-          $(".result").text('You were ' + (printNumberArray(maxNumber) - printNumberArray(this.placedNumbers)) + ' below the max value of ' + printNumberArray(maxNumber))
-          if(printNumberArray(maxNumber) == printNumberArray(this.placedNumbers)) {
+          //Populate the results
+          if(difference > 0) {
+            $(".result").text('You were ' + (printNumberArray(maxNumber) - printNumberArray(this.placedNumbers)) + ' below the max value of ' + printNumberArray(maxNumber))
+          } else {
+            $(".result").text('Nice job, you found the maximum possible number of ' + printNumberArray(this.placedNumbers));
             confetti();
           }
         }
